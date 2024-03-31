@@ -1,0 +1,70 @@
+{% load static %}
+<div class="nav-container">
+    <!-- <div class="logo"> -->
+        <img src="/static/images/logo.png" alt="logo">
+    <!-- </div> -->
+    <div class="search">
+        <input type="text" class="search-box" placeholder="Enter product to search.">
+        <!-- <button class="search-button">Search</button> -->
+        <a href="" class="search-button">Search</a>
+    </div>
+    <ul class="menu">
+        <li>Home</li>
+        <li>Products</li>
+    </ul>
+</div>
+
+<style>
+    .menu {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        cursor: pointer;
+    }
+
+    .nav-container {
+        height: 55px;
+        background-color: #2e3192;
+        display: flex;
+        color: white;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2px 20px;
+    }
+
+    .search {
+        height: 35px;
+        /* padding: 0 4px; */
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .search-box {
+        height: 100%;
+        width: 400px;
+        border: 0;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        padding-left: 4px;
+        /* text-align: center; */
+    }
+
+    .search-button {
+        height: 37px;
+        border-radius: 0 5px 5px 0;
+        outline: none;
+        /* padding: 0 4px; */
+        /* height: 38px; */
+        width: 100px;
+        background-color: #00a69a;
+        text-align: center;
+        /* justify-items: center; */
+        justify-content: center;
+        /* align-content: center; */
+        /* align-items: center; */
+        line-height: 200%;
+        text-decoration: none;
+        color: white;
+    }
+</style>
