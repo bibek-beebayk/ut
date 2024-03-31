@@ -2,11 +2,18 @@
 
 {% block content %}
 <div class="hero-section">
-    <form action="/create-requirement/" method="post">
+    <form method="post">
         {% csrf_token %} 
         <h2>Tell us what you need.</h2>
-        <input class="hero-input" type="text" placeholder="Enter the name of the product you need." required>
-        <input class="hero-input" type="email" name="" id="" placeholder="Enter your email." required>
+        {% if messages %}
+        {% for message in messages %}
+        <div style="color: green;">{{message}}</div>
+        {% endfor %}
+        {% endif %}
+        <input type="text" name="type" value="requirement", style="display: none;">
+        <input class="hero-input" name="product_name" type="text" placeholder="Enter the name of the product you need*" >
+        <input class="hero-input" type="email" name="email" id="" placeholder="Enter your email">
+        <input class="hero-input" type="text" name="phone" id="" placeholder="Enter your contact number*" required>
         <!-- {{form}} -->
         <input type="submit" value="Submit" style="padding: 10px; border-radius: 10px; background-color: #2E3192; color: white; width: 150px; font-size: large;">
     </form>
