@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +14,26 @@
     {% endblock %}
 </body>
 
+<footer>
+    <img src="{% static 'images/logo.png' %}" alt="" style="width: 200px;">
+</footer>
+
 <style>
     body {
         margin: 0;
         padding: 0;
         background-color: #f3f3f3;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* padding: 50px; */
+        padding: 20px 0;
+        background-color: rgb(31, 30, 30);
     }
 </style>
 

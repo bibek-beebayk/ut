@@ -11,3 +11,25 @@ class Requirement(models.Model):
     def __str__(self) -> str:
         return self.product
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(blank=True, null=True, upload_to="categories/")
+
+    def __str__(self) -> str:
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = "categories"
+    
+
+class Product(models.Model):
+    category = models.ForeignKey(Category, related_name="products", on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    code = models.CharField(max_length=32)
+    cover_image = models.ImageField(upload_to="products/")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.name
