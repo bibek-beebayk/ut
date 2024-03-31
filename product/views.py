@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from product.models import Requirement
+from product.models import Category, Requirement
 from django.contrib import messages
 
 # Create your views here.
@@ -14,4 +14,5 @@ def index(request):
             phone = request_data.get("phone")
             req = Requirement.objects.create(product=product_name, email=email, phone=phone)
             messages.success(request, "Your requirement was submitted successfully. We will contact you shortly.")
+    context["categories"] = Category.objects.all()
     return render(request, "index.html", context)

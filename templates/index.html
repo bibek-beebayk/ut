@@ -1,72 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="hero-section">
     <form method="post">
-        {% csrf_token %} 
+        {% csrf_token %}
         <h2>Tell us what you need.</h2>
         {% if messages %}
         {% for message in messages %}
         <div style="color: green;">{{message}}</div>
         {% endfor %}
         {% endif %}
-        <input type="text" name="type" value="requirement", style="display: none;">
-        <input class="hero-input" name="product_name" type="text" placeholder="Enter the name of the product you need*" >
+        <input type="text" name="type" value="requirement" , style="display: none;">
+        <input class="hero-input" name="product_name" type="text" placeholder="Enter the name of the product you need*">
         <input class="hero-input" type="email" name="email" id="" placeholder="Enter your email">
         <input class="hero-input" type="text" name="phone" id="" placeholder="Enter your contact number*" required>
         <!-- {{form}} -->
-        <input type="submit" value="Submit" style="padding: 10px; border-radius: 10px; background-color: #2E3192; color: white; width: 150px; font-size: large;">
+        <input type="submit" value="Submit"
+            style="padding: 10px; border-radius: 10px; background-color: #2E3192; color: white; width: 150px; font-size: large;">
     </form>
 </div>
 
 <div class="product-section">
     <h2>Product Categories</h2>
     <div class="category-list">
+        {% for category in categories %}
         <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
+            <img src="{{category.image.url}}" alt="{{category.name}}">
+            <h4>{{category.name}}</h3>
         </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
-        <div class="category-list-item">
-            <img src="https://www.manorschool.northants.sch.uk/images/manorimages/inpage/Uniform2021.jpg" alt="">
-            <h4>School Uniforms</h3>
-        </div>
+        {% endfor %}
     </div>
+</div>
 </div>
 
 <style>
-
     .category-list-item {
         display: flex;
         flex-direction: column;
@@ -77,6 +45,7 @@
             width: 300px;
             height: 200px;
             object-fit: cover;
+            border-radius: 5px;
         }
 
         h4 {
@@ -91,6 +60,10 @@
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
+        border-radius: 5px;
+        /* img {
+            border-radius: 5px;
+        } */
 
     }
 
@@ -102,7 +75,7 @@
         padding: 10px;
         align-items: center;
         margin-top: 10px;
-        
+
     }
 
     .hero-section {
@@ -139,7 +112,7 @@
         padding: 2px 8px;
         font-size: medium;
     }
-    
+
     .hero-submit {
         width: 50%;
         height: 15%;
@@ -156,7 +129,7 @@
 
     .hero-submit:hover {
         /* background-color: aqua; */
-        
+
     }
 </style>
 {% endblock %}
