@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from product.models import Category, Requirement
+from product.models import Category, Product, Requirement
 from django.contrib import messages
 
 # Create your views here.
@@ -16,3 +16,10 @@ def index(request):
             messages.success(request, "Your requirement was submitted successfully. We will contact you shortly.")
     context["categories"] = Category.objects.all()
     return render(request, "index.html", context)
+
+
+def products(request):
+    context = {}
+    products = Product.objects.order_by("-created_at")
+    context["products"] = products
+    return render(request, "products.html", context)

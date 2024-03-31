@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="products-container">
+    <h2>Products</h2>
+    <div class="product-list">
+        {% for product in products %}
+        <div class="list-item">
+            <img src="{{product.cover_image.url}}" alt="">
+            <span style="font-size: large; font-weight: 600;">{{product.name}}</span>
+            <span>{{product.category.name}}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .products-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        width: 80%;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .list-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+
+        img{
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        span{
+            margin-top: 15px;
+        }
+    }
+
+    .list-item:hover{
+        box-shadow: 2px 3px 13px 0px rgba(122,122,122,1);
+    }
+</style>
+{% endblock %}
