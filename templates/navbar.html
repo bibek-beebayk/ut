@@ -1,7 +1,7 @@
 {% load static %}
 <div class="nav-container">
     <!-- <div class="logo" style="width: 50px;"> -->
-    <img src="{% static 'images/logo.png' %}" alt="logo" style="width: 70px; border-radius: 5px;">
+    <a href="/"><img src="{% static 'images/logo.png' %}" alt="logo" style="width: 70px; border-radius: 5px;"></a>
     <!-- </div> -->
     <div class="search">
         <input type="text" class="search-box" placeholder="Enter product to search.">
@@ -11,6 +11,8 @@
     <ul class="menu">
         <li><a href="/">Home</a></li>
         <li><a href="/products/">Products</a></li>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/contact/">Contact</a></li>
     </ul>
 </div>
 

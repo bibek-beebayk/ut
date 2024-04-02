@@ -41,3 +41,13 @@ def products(request):
         products = paginator.page(paginator.num_pages)
     context["products"] = products      
     return render(request, "products.html", context)
+
+
+def about_us(request):
+    context = {}
+    return render(request, "about.html", context)
+
+
+def contact_us(request):
+    context = {}
+    return render(request, "contact.html", context)
