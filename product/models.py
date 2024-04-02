@@ -35,3 +35,15 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=16)
+    message = models.TextField()
+    is_addressed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Contact Us"

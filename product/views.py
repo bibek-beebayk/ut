@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from product.models import Category, Product, Requirement
+from product.models import Category, ContactUs, Product, Requirement
 from django.contrib import messages
 
 # Create your views here.
@@ -50,4 +50,13 @@ def about_us(request):
 
 def contact_us(request):
     context = {}
+    if request.method == "POST":
+        contact_data = {
+            "name": request.POST.get("name"),
+            "email": request.POST.get("email"),
+            "phone": request.POST.get("phone"),
+            "message": request.POST.get("message")
+        }
+        ContactUs.objects.create(**contact_data)
+        messages.success(request, "Your message was submitted successfully. We will get back to you in a while.")
     return render(request, "contact.html", context)

@@ -11,7 +11,7 @@
             <div style="display: flex; gap: 30px; align-items: center;">
                 <span>Filter by Category</span>
                 <select name="category" id="category" style="padding: 5px; border-radius: 5px;">:
-                    <option value="">----------</option>
+                    <option value="">No Filter</option>
                     {% for category in categories %}
                     <option value="{{category.id}}">{{category.name}}</option>
                     {% endfor %}
@@ -215,5 +215,16 @@
     .list-item:hover {
         box-shadow: 2px 3px 13px 0px rgba(122, 122, 122, 1);
     }
+
+    @media screen and (max-width: 768px){
+        .popup-content{
+            width: 80%;
+        }
+
+        .product-list{
+            justify-content: center;
+        }
+    }
+
 </style>
 {% endblock %}
