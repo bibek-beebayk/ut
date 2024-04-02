@@ -29,7 +29,7 @@ def products(request):
         queryset = queryset.filter(category_id=category_id)
 
     # Pagination
-    paginator = Paginator(queryset, 2)  # 10 products per page
+    paginator = Paginator(queryset, 30)  # 10 products per page
     page = request.GET.get('page')
     try:
         products = paginator.page(page)
