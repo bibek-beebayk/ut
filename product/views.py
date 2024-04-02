@@ -20,6 +20,11 @@ def index(request):
 
 def products(request):
     context = {}
-    products = Product.objects.order_by("-created_at")
-    context["products"] = products
+    context["categories"] = Category.objects.all()
+    # import ipdb; ipdb.set_trace()
+    queryset = Product.objects.order_by("-created_at")
+    category_id = request.GET.get("category")
+    if category_id:
+        queryset = queryset.filter(category_id=category_id)
+    context["products"] = queryset      
     return render(request, "products.html", context)

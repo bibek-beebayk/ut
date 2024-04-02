@@ -28,6 +28,8 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=32)
     cover_image = models.ImageField(upload_to="products/")
+    original_price = models.FloatField()
+    discounted_price = models.FloatField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
