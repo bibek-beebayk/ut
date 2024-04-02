@@ -18,13 +18,26 @@ def index(request):
     return render(request, "index.html", context)
 
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 def products(request):
     context = {}
     context["categories"] = Category.objects.all()
-    # import ipdb; ipdb.set_trace()
     queryset = Product.objects.order_by("-created_at")
     category_id = request.GET.get("category")
     if category_id:
         queryset = queryset.filter(category_id=category_id)
-    context["products"] = queryset      
+
+    # Pagination
+    paginator = Paginator(queryset, 2)  # 10 products per page
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        products = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range, deliver last page of results.
+        products = paginator.page(paginator.num_pages)
+    context["products"] = products      
     return render(request, "products.html", context)
