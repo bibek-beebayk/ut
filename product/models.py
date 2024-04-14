@@ -47,3 +47,25 @@ class ContactUs(models.Model):
 
     class Meta:
         verbose_name_plural = "Contact Us"
+
+
+class Quote(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=16)
+    delivery_date = models.DateField(blank=True, null=True)
+    message = models.TextField()
+    is_addressed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Quotes"
+
+
+class QuoteItem(models.Model):
+    quote = models.ForeignKey(Quote, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+
+    class Meta:
+        verbose_name_plural = "Quote Items"
