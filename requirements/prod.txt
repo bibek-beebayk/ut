@@ -2,3 +2,4 @@
 whitenoise
 gunicorn
 sentry_sdk[django]
+boto3
