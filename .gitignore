@@ -12,3 +12,4 @@ static/
 *.dot
 tunnel.txt
 *.pem*
+core/settings/env.py

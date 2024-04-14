@@ -1,14 +1,6 @@
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = 'django-insecure-i()o2=lv+0fj6f*=ha=rtuxc!g74$kj&t-q9dhh7i*sm6!+0!q'
-
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
-
-CSRF_TRUSTED_ORIGINS = ["https://erp-tunnel.kalodhunga.com"]
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -59,12 +51,6 @@ MEDIA_ROOT = "media/"
 
 MEDIA_URL =    "media/"
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 import os
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'staticfiles'),]
