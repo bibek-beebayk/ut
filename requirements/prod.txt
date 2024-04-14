@@ -1,0 +1,4 @@
+-r base.txt
+whitenoise
+gunicorn
+sentry_sdk[django]

@@ -13,6 +13,6 @@ RUN apt-get update \
   && apt-get -y install gcc \
   && apt-get clean \
   && pip install --upgrade pip \
-  && pip install -r requirements.txt
+  && pip install -r requirements/prod.txt
 
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
